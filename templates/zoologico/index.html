@@ -2,5 +2,18 @@
 {% load static %}
 {% block content %}
 
-
+<section class="conteudo">
+                <section class="banner">
+                    <img class="banner__imagem" src="{% static 'assets/imagens/chinchila.jpg' %}" alt="banner Alura Space">
+                    <h1 class="banner__titulo">A morte chega para todos!</h1>
+                </section>
+                <section class="tags">
+                    <p class="tags__titulo">Busque por tags:</p>
+                    <ul class="tags__lista">
+                        <h1 class="tags__tag">Marinhos</h1>
+                        <h1 class="tags__tag">Terrestres</h1>
+                        <h1 class="tags__tag">Voadores</h1>
+                        <h1 class="tags__tag">Urbanos</h1>
+                    </ul>
+                </section>
 {% endblock %}
