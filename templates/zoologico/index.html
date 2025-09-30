@@ -5,11 +5,12 @@
 
     <section class="banner">
         <div class="banner__carrossel">
-            <img class="banner__imagem" src="{% static 'assets/imagens/chinchila.jpg' %}" alt="Banner 1">
-            <img class="banner__imagem" src="{% static 'assets/imagens/banneranimal.jpg' %}" alt="Banner 2" style="display:none;">
-            <img class="banner__imagem" src="{% static 'assets/imagens/leao.jpg' %}" alt="Banner 3" style="display:none;">
-            <button id="prevBtn" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);">❮</button>
-            <button id="nextBtn" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);">❯</button>
+            <img class="banner__imagem active" src="{% static 'assets/imagens/chinchila.jpg' %}" alt="Banner 1">
+            <img class="banner__imagem" src="{% static 'assets/imagens/otters.webp' %}" alt="Banner 2">
+            <img class="banner__imagem" src="{% static 'assets/imagens/leao.jpg' %}" alt="Banner 3">
+            <button id="prevBtn" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);z-index:3;">❮</button>
+            <button id="nextBtn" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);z-index:3;">❯</button>
+
         </div>
     </section>
     <script>
@@ -19,7 +20,9 @@
         const nextBtn = document.getElementById('nextBtn');
 
         function showImage(index) {
-            images.forEach((img, i) => img.style.display = i === index ? 'block' : 'none');
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
         }
 
         prevBtn.onclick = () => {
@@ -36,7 +39,7 @@
         setInterval(() => {
             current = (current + 1) % images.length;
             showImage(current);
-        }, 3000);
+        }, 6000);
 
         // Inicializa
         showImage(current);

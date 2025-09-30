@@ -96,9 +96,24 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.banner__carrossel {
+    position: relative;
+    height: 500px; /* igual ao .banner__imagem */
+    overflow: hidden;
+}
 .banner__imagem {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 400px;
+    height: 500px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+.banner__imagem.active {
+    opacity: 1;
+    z-index: 2;
 }
 
 
