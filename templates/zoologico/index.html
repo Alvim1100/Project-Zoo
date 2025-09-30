@@ -2,18 +2,53 @@
 {% load static %}
 {% block content %}
 
-<section class="conteudo">
-                <section class="banner">
-                    <img class="banner__imagem" src="{% static 'assets/imagens/chinchila.jpg' %}" alt="banner Alura Space">
-                    <h1 class="banner__titulo">A morte chega para todos!</h1>
-                </section>
-                <section class="tags">
-                    <p class="tags__titulo">Busque por tags:</p>
-                    <ul class="tags__lista">
-                        <h1 class="tags__tag">Marinhos</h1>
-                        <h1 class="tags__tag">Terrestres</h1>
-                        <h1 class="tags__tag">Voadores</h1>
-                        <h1 class="tags__tag">Urbanos</h1>
-                    </ul>
-                </section>
+
+    <section class="banner">
+        <div class="banner__carrossel">
+            <img class="banner__imagem" src="{% static 'assets/imagens/chinchila.jpg' %}" alt="Banner 1">
+            <img class="banner__imagem" src="{% static 'assets/imagens/banneranimal.jpg' %}" alt="Banner 2" style="display:none;">
+            <img class="banner__imagem" src="{% static 'assets/imagens/leao.jpg' %}" alt="Banner 3" style="display:none;">
+            <button id="prevBtn" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);">❮</button>
+            <button id="nextBtn" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);">❯</button>
+        </div>
+    </section>
+    <script>
+        let current = 0;
+        const images = document.querySelectorAll('.banner__carrossel .banner__imagem');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showImage(index) {
+            images.forEach((img, i) => img.style.display = i === index ? 'block' : 'none');
+        }
+
+        prevBtn.onclick = () => {
+            current = (current - 1 + images.length) % images.length;
+            showImage(current);
+        };
+
+        nextBtn.onclick = () => {
+            current = (current + 1) % images.length;
+            showImage(current);
+        };
+
+        // Troca automática
+        setInterval(() => {
+            current = (current + 1) % images.length;
+            showImage(current);
+        }, 3000);
+
+        // Inicializa
+        showImage(current);
+    </script>
+        <section class="conteudo">
+            <section class="tags">
+                <p class="tags__titulo">Busque por tags:</p>
+                <ul class="tags__lista">
+                    <li class="tags__tag">Marinhos</li>
+                    <li class="tags__tag">Terrestres</li>
+                    <li class="tags__tag">Voadores</li>
+                    <li class="tags__tag">Urbanos</li>
+                </ul>
+            </section>
 {% endblock %}

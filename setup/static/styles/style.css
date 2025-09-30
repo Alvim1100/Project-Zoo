@@ -28,7 +28,7 @@ body {
     line-height: 1;
     font-family: sans-serif;
     min-height: 100vh;
-    background: rgb(247, 245, 245);
+    background: #86947D;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -84,6 +84,12 @@ body {
     height: 2rem;
 }
 
+.conteudo {
+    background: #86947D;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
 .banner {
     width: auto;
     position: relative;
@@ -93,18 +99,8 @@ body {
 .banner__imagem {
     width: 100%;
     height: 400px;
-
 }
 
-.banner__titulo {
-    color: #d8d5d5;
-    font-size: 60px;
-    width: 100%;
-    line-height: 70px;
-    position: absolute;
-    top: 150px;
-    left: 0;
-    text-align: center;}
 
 .tags {
     padding: 1.5rem 0;

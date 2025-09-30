@@ -96,16 +96,6 @@ body {
 
 }
 
-.banner__titulo {
-    color: #d8d5d5;
-    font-size: 60px;
-    width: 100%;
-    line-height: 70px;
-    position: absolute;
-    top: 150px;
-    left: 0;
-    text-align: center;}
-
 .tags {
     padding: 1.5rem 0;
     display: flex;
